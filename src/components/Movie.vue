@@ -23,7 +23,7 @@ export default {
     },
     methods:{
         imgSrc(movieId){
-            return `/movies/ ${ movieId }.jpg`
+            return `/movies/${ movieId }.jpeg`
         },
        chooseMovie(movieId){
            this.$emit('chooseMovie', movieId);

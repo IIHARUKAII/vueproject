@@ -2,10 +2,11 @@
     <div class="box">
         <template v-for="s in seats" >
             <button 
-                :class="className(s)" :key="s" 
+                :class="className(s)" :key="s"
+                id="seat" 
                 :disabled="s.seated"
                 @click="chooseSeat(s)"
-                > {{s.id}} {{s.price}}  </button>
+                > {{s.id}} {{s.price}}  </button> 
                 
             </template>   
             <!-- <span> {{selectSeats}} </span> -->
@@ -38,5 +39,58 @@ export default {
 }
 </script>
 <style >
+    *{
+    box-sizing: border-box;
+}
+body{
+    background-color: #242323;
+    color:#fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin:0;
+}
+#movie-container{
+    margin:20px 0;
+}
+#movie-container select{
+    background-color: #fff;
+    border:0;
+    border-radius: 5px;
+    font-size: 14px;
+    padding: 5px 15px 5px 15px;
+    appearance: none;
+}
+#seat{
+    text-indent: -9999px; 
     
+    height: 22px;
+    width: 30px;
+    margin:3px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+  
+#row{
+    display: flex;
+}
+/* #seat#selected{
+    background-color:greenyellow;
+}
+#seat#occupied{
+    background-color:red;
+} */
+#seat:nth-of-type(2){
+    margin-right: 18px;
+}
+#seat:nth-last-of-type(2){
+    margin-left: 18px;
+}
+.box{
+    background-color:gray ;
+}
+
 </style>
