@@ -1,13 +1,15 @@
 <template >
     <div class="box">
         <h3 class="title"> {{ movieId }} </h3>
-        <p>Count:{{status.count}}, Price:{{status.price}} </p>
+        <h1 id="price">Count:{{status.count}}, Price:{{status.price}} </h1>
         <movie @chooseMovie="handleChooseMovie" :movieId="movieId"/>
         <seat 
         :movieId="movieId" 
         @chooseSeat="handleChooseSeat"
         :selectSeats="selectSeats"
         />
+        <button class="buy" type="button" @click="alert">Buy Ticket</button>
+        <!-- <button class="buy">Buy Ticket</button> -->
     </div>
 </template>
 <script>
@@ -51,10 +53,32 @@ export default {
            },{count:0, price:0})
           
            console.log(this.selectSeat.length)
+       },
+       alert(){
+           return alert("Thank You for buy ticket, you ticket price is" + this.status.price);
        }
+       
    }
 }
 </script>
 <style >
-    
+    #price{
+        font-weight: bold;  
+        font-size: 50px;
+    }
+    .buy{
+       transition-duration: 0.4s;
+       background-color: white; /* Green */
+        border: none;
+        color: black;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+    }
+    .buy:hover{
+        background-color: lightgray; /* Green */
+        color:black;
+    }
 </style>
