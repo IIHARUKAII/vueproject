@@ -1,6 +1,6 @@
 <template >
     <div class="box">
-        <h3 class="title"> Movie {{ movieId }} </h3>
+        <h3 class="title"> {{ movieId }} </h3>
         <p>Count:{{status.count}}, Price:{{status.price}} </p>
         <movie @chooseMovie="handleChooseMovie" :movieId="movieId"/>
         <seat 

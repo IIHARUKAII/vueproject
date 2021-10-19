@@ -1,9 +1,9 @@
 <template >
     <div class="box">
         <h3 class="title"> {{ movieId }} </h3>
-        <div class="columns">
+        <div class="columns" >
             <div v-for="m in movies" :key="m" :class="className(m.id)" @click="chooseMovie(m.id)">
-                <figure class="image">
+                <figure class="image" id="time">
                     <img :src="imgSrc(m.id)">
                 </figure>
             </div>
@@ -23,7 +23,7 @@ export default {
     },
     methods:{
         imgSrc(movieId){
-            return `/movies/${ movieId }.jpeg`
+            return `/movies/${ movieId }.jpg`
         },
        chooseMovie(movieId){
            this.$emit('chooseMovie', movieId);
@@ -47,5 +47,14 @@ export default {
     }
     .chosen{
         border-style: solid ;
+    }
+    #time{
+        border-style: solid ;
+        color: black;
+        border-width: 7px;
+        border-top-left-radius: 16px;
+        border-top-right-radius: 16px;
+        border-bottom-left-radius: 16px;
+        border-bottom-right-radius: 16px;
     }
 </style>

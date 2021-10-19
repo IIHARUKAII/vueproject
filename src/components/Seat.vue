@@ -1,5 +1,6 @@
 <template >
-    <div class="box">
+    <div class="box" >
+        <div class="space">
         <template v-for="s in seats" >
             <button 
                 :class="className(s)" :key="s"
@@ -7,8 +8,10 @@
                 :disabled="s.seated"
                 @click="chooseSeat(s)"
                 > {{s.id}} {{s.price}}  </button> 
+                <!-- > {{s.id}} {{s.price}}  </button>  -->
                 
             </template>   
+            </div>
             <!-- <span> {{selectSeats}} </span> -->
     </div>
 </template>
@@ -38,6 +41,7 @@ export default {
     }
 }
 </script>
+
 <style >
     *{
     box-sizing: border-box;
@@ -64,15 +68,14 @@ body{
     appearance: none;
 }
 #seat{
-    text-indent: -9999px; 
-    
-    height: 22px;
-    width: 30px;
+    /* text-indent: -9999px;  */
+    border-style: ridge;
+    height: 50px;
+    width: 75px;
     margin:3px;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
 }
-
   
 #row{
     display: flex;
@@ -83,14 +86,19 @@ body{
 #seat#occupied{
     background-color:red;
 } */
-#seat:nth-of-type(2){
+/* #seat:nth-of-type(2){
     margin-right: 18px;
 }
 #seat:nth-last-of-type(2){
     margin-left: 18px;
-}
+} */
 .box{
     background-color:gray ;
+    
+}
+.space{
+    padding-left: 300px;
+    padding-right: 300px;
 }
 
 </style>
